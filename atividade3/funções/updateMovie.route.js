@@ -3,7 +3,7 @@ const route = express.Router()
 const { movies } = require("../dados/movies")
 
 route.put("/:id", (req, res) => {
-    const id = Number(res.params.id)
+    const id = Number(req.params.id)
 
     if (!Number.isInteger(id)) {
         return res.status(400).json({error: "ID inválido"})
@@ -20,7 +20,7 @@ route.put("/:id", (req, res) => {
     if (year !== undefined) {
         year = Number(year)
 
-        if (!Number.isInteger(year)) {
+        if (!Number.isInteger(year) || year <= 0) {
             return res.status(400).json({error: "O parâmetro 'year' deve ser um número inteiro válido."})
         }
 
