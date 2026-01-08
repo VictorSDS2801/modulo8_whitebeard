@@ -4,7 +4,7 @@ const route = express.Router()
 const { movies } = require("../dados/movies")
 
 route.get("/busca", (req, res) => {
-    let { title, director, year, genre } = req.body
+    let { title, director, year, genre } = req.query
 
     let result = movies
 
