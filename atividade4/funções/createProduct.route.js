@@ -21,6 +21,7 @@ route.post("/", (req, res) => {
     }
 
     const newProduct = {id: getNextId(), name, category, price, stock}
+    products.push(newProduct)
     return res.status(201).json(newProduct)
 })
 module.exports = route
